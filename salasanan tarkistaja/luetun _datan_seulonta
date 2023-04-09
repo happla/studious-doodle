@@ -1,0 +1,9 @@
+
+merkkijono = open("merkkijonoja.txt","r")
+sisalto = merkkijono.readlines()
+
+for i in sisalto:
+	if i.strip().isalnum():
+		print(i.strip(), "kelpaa salasanaksi.")
+	else:
+		print(i.strip(), "sisältää virheellisiä merkkejä.")
