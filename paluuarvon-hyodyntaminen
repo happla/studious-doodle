@@ -1,0 +1,15 @@
+def pituusmitta(syote):
+    if not syote.isalpha():
+        print("Et antanut syötettä")
+    else:
+        print("Antamasi syöte oli", len(syote), "merkkiä pitkä.")
+
+def main():
+    while True:
+        syote = input("Anna syöte (Lopeta lopettaa): ")
+        if syote.lower() == "lopeta":
+            break
+        pituusmitta(syote)
+
+if __name__ == "__main__":
+    main()
