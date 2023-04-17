@@ -1,0 +1,26 @@
+def otaluku():
+    tiedosto = input("Anna tiedoston nimi:")
+    return tiedosto
+
+def main():
+    try:
+        tiedosto = otaluku()
+        with open(tiedosto, "r", encoding="ISO-8859-1") as file:
+            total = 0
+            loyty_numerot = False
+            for line in file:
+                try:
+                    value = int(line)
+                    total += value + 313
+                    loyty_numerot = True
+                except ValueError:
+                    loyty_numerot = False
+                    print("Tiedoston sisältö virheellinen!")
+                    break
+            if loyty_numerot:
+                print("Saatiin tulos", total)
+    except FileNotFoundError:
+        print("Virheellinen tiedoston nimi")
+
+if __name__ == "__main__":
+    main()
