@@ -1,0 +1,44 @@
+import os.path
+import time
+# Check if the default memo file exists
+if not os.path.isfile("muistio.txt"):
+    print("Oletusmuistioa ei löydy, luodaan tiedosto.")
+    open("muistio.txt", "w").close()
+muistiota_kaytetaan = "muistio.txt"
+print(f"Käytetään muistiota: {muistiota_kaytetaan}")
+# Open the default memo file in append mode
+with open("muistio.txt", "a") as tiedosto:
+    while True:
+        print("(1) Lue muistikirjaa\n(2) Lisää merkintä\n(3) Tyhjennä muistikirja\n(4) Vaihda muistiota\n(5) Lopeta")
+
+        userInput = int(input("Mitä haluat tehdä?: "))
+
+        if userInput == 1:
+            with open(muistiota_kaytetaan, "r") as file:
+                print(file.read())
+                print(f"Käytetään muistiota: {muistiota_kaytetaan}")
+        elif userInput == 2:
+            with open(muistiota_kaytetaan, "a") as file:
+                userInput = input("Kirjoita uusi merkintä: ")
+                timestamp = time.strftime("%x %X")
+                file.write(f"{userInput}:::{timestamp}" + "\n")
+                print(f"Käytetään muistiota: {muistiota_kaytetaan}")
+        elif userInput == 3:
+            with open(muistiota_kaytetaan, "w") as file:
+                print("Muistio tyhjennetty.")
+                print(f"Käytetään muistiota: {muistiota_kaytetaan}")
+                pass
+        elif userInput == 4:
+            uusi_muistio = input("Anna tiedoston nimi: ")
+            if not os.path.isfile(uusi_muistio + ".txt"):
+                print("Tiedostoa ei löydy, luodaan tiedosto.")
+            with open (uusi_muistio + ".txt", "a") as file:
+                pass
+            muistiota_kaytetaan = uusi_muistio
+            print(f"Käytetään muistiota: {muistiota_kaytetaan}")
+            
+        elif userInput == 5:
+            print("Lopetetaan.")
+            break
+        else:
+            print("Väärä valinta, yritä uudelleen.")

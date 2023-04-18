@@ -2,7 +2,8 @@ while True:
     print("(1) Lue muistikirjaa")
     print("(2) Lisää merkintä")
     print("(3) Tyhjennä muistikirja")
-    print("(4) Lopeta")
+    print("(4) Vaihda muistiota")
+    print("(5) Lopeta")
 
     userinput = input("Mitä haluat tehdä?: ")
     if userinput == "1":
