@@ -1,0 +1,6 @@
+alkiot = ["Sininen", "Punainen", "Keltainen","Vihreä"]
+print("Listan ensimmäinen alkio on:", alkiot[0])
+print("Lista tulostettuna alkio kerrallaan:")
+
+for i in alkiot:
+	print(i)
