@@ -1,0 +1,14 @@
+class Kilpailija:
+    def __init__(self, vari):
+        self.vari = vari
+        self.pisteet = 0
+        
+    def maali(self):
+        self.pisteet += 1
+        
+    def tilanne(self):
+        return "Olen {} ja minulla on {} pistettä!".format(self.vari, self.pisteet)
+
+eka = Kilpailija("sininen")
+eka.maali()
+print(eka.tilanne())
