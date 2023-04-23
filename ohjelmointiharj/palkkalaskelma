@@ -1,0 +1,34 @@
+class Employee:
+    def __init__(self, id, name):
+        self.id = id
+        self.name = name
+
+class SalaryEmployee(Employee):
+    def __init__(self, id, name, monthly_salary):
+        super().__init__(id, name)
+        self.monthly_salary = monthly_salary
+    
+    def calculate_salary(self):
+        return self.monthly_salary
+
+class PayrollSystem:
+    def calculate_payroll(self, employees):
+        for employee in employees:
+            print("Palkkalaskelma")
+            print("==============")
+            salary = employee.calculate_salary()
+            print(f"Henkilölle: {employee.id} - {employee.name}" "\n" f"- Maksetaan: {salary}""\n")
+
+employees = []
+i = 1
+while True:
+    name = input(f"Anna työntekijän nimi: (0 lopetus): ")
+    if name == '0':
+        break
+    monthly_salary = int(input(f"Anna kuukausipalkka: "))
+    employee = SalaryEmployee(i, name, monthly_salary)
+    employees.append(employee)
+    i += 1
+
+payroll_system = PayrollSystem()
+payroll_system.calculate_payroll(employees)

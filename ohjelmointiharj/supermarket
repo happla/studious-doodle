@@ -1,0 +1,22 @@
+hinnat = [10, 14, 22, 33, 44, 13, 22, 55, 66, 77]
+ostokset = []
+tuote = 1
+print("Supermarket")
+print("===========")
+while tuote != 0:
+    tuote = int(input("Valitse tuote (1-10) 0 lopetus: "))
+    if tuote >= 1 and tuote <= 10:
+        hinta = hinnat[tuote-1]
+        print("Tuote:", tuote, "Hinta: ", hinta)
+        ostokset.append(hinta)
+    elif tuote != 0:
+        print("Tuotenumeroa ei löydy. Yritä uudelleen.")
+
+if len(ostokset) > 0:
+    summa = sum(ostokset)
+    print("Yhteensä:", summa)
+    maksu = int(input("Maksu: "))
+    vaihto = maksu - summa
+    print("Vaihto:", vaihto)
+else:
+    print("Ei ostoksia.")

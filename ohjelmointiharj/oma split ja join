@@ -1,0 +1,24 @@
+def my_split(lause, erotinmerkki):
+    """Jakaa annetun lauseen annetun erotinmerkin kohdalta ja palauttaa listan."""
+    tulos = []
+    indeksi = 0
+    for i in range(len(lause)):
+        if lause[i] == erotinmerkki:
+            tulos.append(lause[indeksi:i])
+            indeksi = i + 1
+    tulos.append(lause[indeksi:])
+    return tulos
+
+
+def my_join(lista, erotinmerkki):
+    """Liittää annetun listan alkiot merkkijonoksi annetun erotinmerkin avulla ja palauttaa merkkijonon."""
+    tulos = ""
+    for i in range(len(lista)):
+        tulos += lista[i]
+        if i != len(lista) - 1:
+            tulos += erotinmerkki
+    return tulos
+
+sentence = str(input("Kirjoita lause:"))
+print(my_join(my_split(sentence,' ')','))
+print(my_join(my_split(sentence,' '), '\n'))
